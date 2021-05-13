@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using DG.Tweening;
+
+public class MoveTo : MonoBehaviour
+{
+    [SerializeField] private Transform _transformButtonPlayer;
+    [SerializeField] private Transform _transformButtonAuthor;
+    [SerializeField] private Transform _transformButtonExit;
+    [SerializeField] private GameObject _canvasSetActive;
+
+    public void MoveUp()
+    {
+        _transformButtonPlayer.DOMove(new Vector3(0, 6, 0), 2);
+        _transformButtonAuthor.DOMove(new Vector3(0, 6, 0), 2);
+        _transformButtonExit.DOMove(new Vector3(0, 6, 0), 2);
+        Invoke("ClosedCnvas", 2);
+    }
+
+    private void ClosedCnvas()
+    {
+        _canvasSetActive.SetActive(false);
+    }
+}
